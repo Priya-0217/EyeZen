@@ -1,107 +1,76 @@
-# EyeCare
+# EyeCare — Download & Install
 
-Free desktop eye protection app that reduces eye strain by filtering blue light and controlling screen brightness. Built with Electron, React, TypeScript, Vite, and Tailwind CSS v4.
+Reduce eye strain by filtering blue light and controlling screen brightness. This page explains how to install EyeCare from GitHub Releases (without source code).
 
-## Features
+## Quick Install (Windows)
 
-- Blue-light filter overlay (warmth and brightness controls)
-- Day/Night toggle (light/dark UI theme + filter presets)
-- Presets (Health, Office, Reading, Game, Movie, Editing, Custom)
-- Global keyboard shortcuts
-- Clean UI styled with Tailwind CSS v4
-- Cross-platform packaging via Electron Forge
+1. Go to the repository’s “Releases” page.
+2. Download the latest installer:
+   - eye-care-Setup.exe — recommended
+   - eye-care-Win.zip — portable (no install)
+3. Run `eye-care-Setup.exe` and follow the installer prompts.
+4. Launch “EyeCare” from the Start Menu or Desktop shortcut.
 
-## Screenshots
+### Portable ZIP (no install)
+- Unzip `eye-care-Win.zip` to a folder you control (e.g. `C:\Apps\EyeCare`).
+- Double‑click `EyeCare.exe`.
+- To remove, delete the folder.
 
-- Add screenshots (PNG/JPG) under `docs/screenshots/` and reference them here:
-  - Display Settings
-  - Night Mode
-  - Presets
+## System Requirements
 
-## Getting Started
+- Windows 10 or later
+- 64‑bit OS
+- Standard user permissions (admin not required for normal use)
 
-### Prerequisites
+## Using EyeCare
 
-- Node.js 18+ (LTS recommended)
-- npm 9+
-
-### Install
-
-```bash
-npm install
-```
-
-### Development
-
-```bash
-npm run dev
-```
-
-- This starts the Vite dev server and launches Electron.
-- Preview is available at the printed localhost URL (e.g., http://localhost:5174/).
-
-### Lint
-
-```bash
-npm run lint
-```
-
-### Package (build installers)
-
-```bash
-npm run make
-```
-
-- Output is created under `out/` (e.g., Windows Squirrel installer).
+- Display page:
+  - Adjust Warmth (color temperature)
+  - Adjust Brightness
+  - Presets: Health, Office, Reading, Game, Movie, Editing, Custom
+- Day/Night:
+  - “Day” sets light mode + bright preset
+  - “Night” sets dark mode + warmer preset
+- Activate:
+  - “Activate” turns on the screen overlay filter
 
 ## Keyboard Shortcuts
 
-- Ctrl + Alt + F — Toggle filter overlay
+- Ctrl + Alt + F — Toggle overlay filter on/off
 - Ctrl + Alt + D — Open Display page
 - Ctrl + Alt + S — Open Settings page
 
-## Day/Night Mode
+## Uninstall
 
-- Day: Light UI + filter preset (warmer off, full brightness)
-- Night: Dark UI + filter preset (warmer on, reduced brightness)
-
-The UI theme switches using Tailwind’s `dark` class on `<html>`, and cards/layout use `dark:` variants.
-
-## Tech Stack
-
-- Electron Forge + Vite
-- React + TypeScript
-- Tailwind CSS v4 (PostCSS integration)
-
-
-## Project Structure (key files)
-
-- `src/pages/Dashboard.tsx` — main UI with sliders, presets, Day/Night
-- `src/pages/settings.tsx` — settings page (keyboard shortcuts shown)
-- `src/pages/schedule.tsx` — schedule UI
-- `src/main.ts` — Electron main process (overlay, global shortcuts, IPC)
-- `src/preload.ts` — safe IPC bridge
-- `src/router.tsx` — app routing and sidebar
-- `src/index.css` — Tailwind directives + custom styles
-- `postcss.config.cjs` — Tailwind v4 PostCSS plugin
+- Installed via EXE:
+  - Open “Add or remove programs” (Settings → Apps)
+  - Find “EyeCare” and click Uninstall
+- Portable ZIP:
+  - Close the app and delete the folder
 
 ## Troubleshooting
 
-- ESM plugin error (require vs ESM):
-  - If you see errors like “resolved to an ESM file … cannot be loaded by require”, remove ESM-only imports from `vite.renderer.config.ts` and rely on PostCSS for Tailwind.
-- 500 loading `index.css`:
-  - Install `@tailwindcss/postcss` and use it in `postcss.config.cjs`.
-- Electron dev security warning (CSP):
-  - This warning appears in development; it won’t show in packaged builds.
-- Windows GPU/net cache errors:
-  - Common in dev sandboxes; usually harmless and don’t affect functionality.
+- Overlay not visible:
+  - Press Ctrl + Alt + F to toggle
+  - Ensure no other overlay apps are running
+- Styles look plain:
+  - Restart the app; ensure you downloaded the latest release
+- Antivirus warnings:
+  - The app is packaged with Electron; allow it if flagged
+- App won’t launch:
+  - Reboot Windows, then reinstall the latest release
 
-## Release Notes (suggestion template)
+## Privacy & Permissions
 
-- New: Day/Night mode toggles UI theme and filter preset
-- New: Global shortcuts (Ctrl+Alt+F toggle overlay; Ctrl+Alt+D/S open pages)
-- Improved: Tailwind v4 setup with PostCSS
-- Fixed: Renderer ESM plugin compatibility issues
+- EyeCare does not collect or transmit personal data.
+- No special permissions are required; overlay runs on top of the screen only.
 
+## Support
 
+- Open an Issue on GitHub with:
+  - Windows version, EyeCare version (from Releases)
+  - What you tried, and a screenshot if possible
 
+## License
+
+MIT
